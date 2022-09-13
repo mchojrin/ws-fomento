@@ -11,6 +11,6 @@ class Gateway
 
     public function getFunctions(): array
     {
-        return [];
+        return ['ConsultaDeServicio'];
     }
 }
