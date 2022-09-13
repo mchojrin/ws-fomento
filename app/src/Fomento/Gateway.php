@@ -20,9 +20,10 @@ class Gateway
         return $this->client->__getFunctions();
     }
 
-    public function call(string $method, string $xmlText)
+    public function call(string $method, string $xmlText): string
     {
         $this->signer->sign($xmlText);
-        $this->client->__soapCall($method, []);
+
+        return $this->client->__soapCall($method, []);
     }
 }

@@ -84,12 +84,30 @@ class GatewayShould extends TestCase
      * @test
      * @dataProvider methodNamesProvider
      */
-    public function return_the_raw_xml(string $method): void
+    public function return_raw_xml(string $method): void
     {
         $this->expectNotToPerformAssertions();
         $xml = "<root/>";
         $gateway = $this->buildGateway();
         $xml = new SimpleXMLElement($gateway->call($method, $xml));
+    }
+
+    /**
+     * @test
+     * @param string $method
+     * @dataProvider methodNamesProvider
+     */
+    public function return_result_from_the_webservice(string $method): void
+    {
+        $xml = (new SimpleXMLElement("<root/>"))->asXML();
+
+        $this->soapClient
+            ->method("__soapCall")
+            ->with($method)
+            ->willReturn($xml);
+
+        $gateway = $this->buildGateway();
+        $this->assertEquals($xml, $gateway->call($method, ""));
     }
 
     public function methodNamesProvider(): array
