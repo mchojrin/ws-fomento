@@ -54,8 +54,11 @@ class GatewayShould extends TestCase
             ->method('sign')
             ->with($xmlText);
 
+        $this->soapClient
+            ->method('__soapCall')
+            ->willReturn("");
+
         $gateway = $this->buildGateway();
-        $method = "aMethod";
 
         $gateway->call($method, $xmlText);
     }
@@ -75,21 +78,6 @@ class GatewayShould extends TestCase
         ;
         $gateway = $this->buildGateway();
         $gateway->call($method, "");
-    }
-
-    /**
-     * @param string $method
-     * @return void
-     * @throws Exception
-     * @test
-     * @dataProvider methodNamesProvider
-     */
-    public function return_raw_xml(string $method): void
-    {
-        $this->expectNotToPerformAssertions();
-        $xml = "<root/>";
-        $gateway = $this->buildGateway();
-        $xml = new SimpleXMLElement($gateway->call($method, $xml));
     }
 
     /**
