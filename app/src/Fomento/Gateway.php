@@ -2,15 +2,20 @@
 
 namespace Fomento;
 
+use SoapClient;
+
 class Gateway
 {
 
-    public function __construct()
+    private SoapClient $client;
+
+    public function __construct(SoapClient $client)
     {
+        $this->client = $client;
     }
 
-    public function getFunctions(): array
+    public function getFunctions(): ?array
     {
-        return ['ConsultaDeServicio'];
+        return $this->client->__getFunctions();
     }
 }
