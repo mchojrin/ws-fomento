@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Fomento\Test;
 
+use Exception;
 use Fomento\Gateway;
 use Fomento\Signer;
 use PHPUnit\Framework\TestCase;
@@ -74,8 +77,19 @@ class GatewayShould extends TestCase
         $gateway->call($method, "");
     }
 
-    public function return_the_raw_xml(): void
+    /**
+     * @param string $method
+     * @return void
+     * @throws Exception
+     * @test
+     * @dataProvider methodNamesProvider
+     */
+    public function return_the_raw_xml(string $method): void
     {
+        $this->expectNotToPerformAssertions();
+        $xml = "<root/>";
+        $gateway = $this->buildGateway();
+        $xml = new SimpleXMLElement($gateway->call($method, $xml));
     }
 
     public function methodNamesProvider(): array
