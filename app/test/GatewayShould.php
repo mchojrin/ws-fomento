@@ -57,8 +57,21 @@ class GatewayShould extends TestCase
         $gateway->call($method, $xmlText);
     }
 
-    public function call_the_method_it_receives(): void
+    /**
+     * @param string $method
+     * @test
+     * @return void
+     * @dataProvider methodNamesProvider
+     */
+    public function call_the_method_it_receives(string $method): void
     {
+        $this->soapClient
+            ->expects($this->once())
+            ->method("__soapCall")
+            ->with($method)
+        ;
+        $gateway = $this->buildGateway();
+        $gateway->call($method, "");
     }
 
     public function return_the_raw_xml(): void
