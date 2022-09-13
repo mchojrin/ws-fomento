@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Fomento\Test;
 
-use Exception;
 use Fomento\Gateway;
 use Fomento\Signer;
 use PHPUnit\Framework\TestCase;
@@ -42,20 +41,20 @@ class GatewayShould extends TestCase
      * @return void
      * @dataProvider methodNamesProvider
      */
-    public function sign_the_xml_it_receives(string $method): void
+    public function sign_the_xml_before_sending_it(string $method): void
     {
         $xml = new SimpleXMLElement('<root/>');
         $xml->addChild('aChild');
 
         $xmlText = $xml->asXML();
 
-        $this->signer
-            ->expects($this->once())
-            ->method('sign')
-            ->with($xmlText);
+        $this->signer = new Signer();
+        $signedXML = $this->signer->sign($xmlText);
 
         $this->soapClient
+            ->expects($this->once())
             ->method('__soapCall')
+            ->with($method, [$signedXML])
             ->willReturn("");
 
         $gateway = $this->buildGateway();
@@ -102,7 +101,6 @@ class GatewayShould extends TestCase
     {
         return
             [
-                ['aMethod',],
                 ['ConsultaDeServicio',],
             ];
     }
