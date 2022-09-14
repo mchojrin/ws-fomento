@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8d4ccd1639e93774cb5161f8fbc5873",
-    "packages": [],
+    "content-hash": "4034106364cdda760a00a4993c696594",
+    "packages": [
+        {
+            "name": "marcelxyz/php-xml-digital-signature",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marcelxyz/php-XmlDigitalSignature.git",
+                "reference": "0caebc0799586185a916cfecb27ec27d584f6f0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marcelxyz/php-XmlDigitalSignature/zipball/0caebc0799586185a916cfecb27ec27d584f6f0c",
+                "reference": "0caebc0799586185a916cfecb27ec27d584f6f0c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.3"
+            },
+            "suggest": {
+                "ext-mcrypt": "MCrypt extension",
+                "ext-openssl": "OpenSSL extension"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "XmlDsig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Tyszkiewicz",
+                    "email": "marcel.tyszkiewicz@gmail.com"
+                }
+            ],
+            "description": "A PHP library for signing XML documents using digital signatures",
+            "homepage": "https://github.com/marcelxyz/php-XmlDigitalSignature",
+            "keywords": [
+                "pkcs",
+                "signature",
+                "xml",
+                "xml-dsig",
+                "xml-sig",
+                "xmldsig"
+            ],
+            "support": {
+                "issues": "https://github.com/marcelxyz/php-XmlDigitalSignature/issues",
+                "source": "https://github.com/marcelxyz/php-XmlDigitalSignature/tree/v1.0"
+            },
+            "time": "2017-04-07T15:43:02+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "behat/behat",
@@ -1849,16 +1903,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "4.0.6",
+            "version": "4.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "55f4261989e546dc112258c7a75935a81a7ce382"
+                "reference": "7fa545db548c90bdebeb9da0583001a252be5578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/55f4261989e546dc112258c7a75935a81a7ce382",
-                "reference": "55f4261989e546dc112258c7a75935a81a7ce382",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/7fa545db548c90bdebeb9da0583001a252be5578",
+                "reference": "7fa545db548c90bdebeb9da0583001a252be5578",
                 "shasum": ""
             },
             "require": {
@@ -1911,7 +1965,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/comparator/issues",
-                "source": "https://github.com/sebastianbergmann/comparator/tree/4.0.6"
+                "source": "https://github.com/sebastianbergmann/comparator/tree/4.0.7"
             },
             "funding": [
                 {
@@ -1919,7 +1973,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-26T15:49:45+00:00"
+            "time": "2022-09-14T06:33:43+00:00"
         },
         {
             "name": "sebastian/complexity",
@@ -2109,16 +2163,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "4.0.4",
+            "version": "4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "65e8b7db476c5dd267e65eea9cab77584d3cfff9"
+                "reference": "ac230ed27f0f98f597c8a2b6eb7ac563af5e5b9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/65e8b7db476c5dd267e65eea9cab77584d3cfff9",
-                "reference": "65e8b7db476c5dd267e65eea9cab77584d3cfff9",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/ac230ed27f0f98f597c8a2b6eb7ac563af5e5b9d",
+                "reference": "ac230ed27f0f98f597c8a2b6eb7ac563af5e5b9d",
                 "shasum": ""
             },
             "require": {
@@ -2174,7 +2228,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/exporter/issues",
-                "source": "https://github.com/sebastianbergmann/exporter/tree/4.0.4"
+                "source": "https://github.com/sebastianbergmann/exporter/tree/4.0.5"
             },
             "funding": [
                 {
@@ -2182,7 +2236,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-11T14:18:36+00:00"
+            "time": "2022-09-14T06:03:37+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -4652,7 +4706,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "~7.4"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
 }
